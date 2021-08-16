@@ -2,24 +2,24 @@ import './styles.css';
 
 const todoItems = [
   {
-    description: "Learn JavaScript",
+    description: 'Learn JavaScript',
     completed: false,
-    index: 0
+    index: 0,
   },
   {
-    description: "Count to 3000",
+    description: 'Count to 3000',
     completed: false,
-    index: 1
+    index: 1,
   },
   {
-    description: "Write a book",
+    description: 'Write a book',
     completed: false,
-    index: 2
-  }
-]
+    index: 2,
+  },
+];
 
 const populateItems = () => {
-  const sortedList = todoItems.sort((a, b) => a.index - b.index)
+  const sortedList = todoItems.sort((a, b) => a.index - b.index);
 
   for (let i = 0; i < sortedList.length; i += 1) {
     document.getElementById('list-items').insertAdjacentHTML('beforeend', `
@@ -29,8 +29,8 @@ const populateItems = () => {
             <label for="item-${sortedList[i].index}">${sortedList[i].description}</label>
           </div>
         </div>
-      `)
+      `);
   }
-}
+};
 
-window.onload = populateItems()
+window.onload = populateItems();
