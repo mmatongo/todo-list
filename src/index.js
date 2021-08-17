@@ -1,4 +1,5 @@
 import './styles.css';
+import { dragHover } from './dragdrop.js';
 
 const todoItems = [
   {
@@ -23,15 +24,20 @@ const populateItems = () => {
 
   for (let i = 0; i < sortedList.length; i += 1) {
     document.getElementById('list-items').insertAdjacentHTML('beforeend', `
-        <div class="todo-item">
+        <div class="todo-item" draggable="true">
           <div>
-            <input class="check" type="checkbox" name="item-${sortedList[i].index}">
+            <input type="checkbox" name="item-${sortedList[i].index}">
             <label for="item-${sortedList[i].index}">${sortedList[i].description}</label>
           </div>
-          <span class="material-icons-outlined buttons">more_vert</span>
+          <div class="move-button">
+            <span class="material-icons-outlined buttons">more_vert</span>
+          </div>
         </div>
       `);
   }
 };
 
-window.onload = populateItems();
+window.addEventListener('load', () => {
+  populateItems();
+  dragHover();
+});
