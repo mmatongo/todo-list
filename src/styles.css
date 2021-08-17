@@ -27,7 +27,6 @@ body {
 .title {
   display: flex;
   justify-content: space-between;
-  padding: 4px;
   border-bottom: 1px solid #f0f0f0;
   padding: 1rem;
 }
