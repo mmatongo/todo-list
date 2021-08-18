@@ -1,6 +1,6 @@
 import './styles.css';
-import { dragHover } from './dragdrop.js';
-import { toStorage, fromStorage, reloadStore } from './store.js';
+import { dragHover } from './dragdrop';
+import { toStorage, fromStorage, reloadStore } from './store';
 
 const todoItems = [
   {
