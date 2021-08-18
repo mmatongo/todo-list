@@ -86,3 +86,7 @@ body {
   color: #333;
   padding-top: 0;
 }
+
+.move-button:hover {
+  cursor: move;
+}
