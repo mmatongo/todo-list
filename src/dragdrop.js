@@ -1,26 +1,22 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true,
-});
-
 let dragElemStart = null;
 
-function dragStart(e) {
-  this.style.opacity = '0.4';
+const dragStart = (e) => {
+  e.target.style.opacity = '0.4';
   dragElemStart = e.currentTarget;
   e.dataTransfer.effectAllowed = 'move';
   e.dataTransfer.setData('text/html', dragElemStart.innerHTML);
-}
+};
 
-function dragEnd(e) {
-  this.style.opacity = '1';
+const dragEnd = (e) => {
+  e.target.style.opacity = '1';
   return e;
-}
+};
 
-function dragOver(e) {
+const dragOver = (e) => {
   e.preventDefault();
-}
+};
 
-function drop(e) {
+const drop = (e) => {
   e.stopPropagation();
   const dropElemEnd = e.currentTarget;
 
@@ -51,9 +47,9 @@ function drop(e) {
       `item-${startId}`,
     );
   }
-}
+};
 
-function dragHover() {
+const dragHover = () => {
   const todoItems = document.getElementsByClassName('todo-item');
   [...todoItems].forEach((todoItem) => {
     todoItem.addEventListener('dragstart', dragStart, false);
@@ -61,5 +57,5 @@ function dragHover() {
     todoItem.addEventListener('drop', drop, false);
     todoItem.addEventListener('dragover', dragOver, false);
   });
-}
+};
 exports.dragHover = dragHover;
