@@ -12,7 +12,7 @@
 - JS
 
 ## Live Demo
-[Live Demo](https://mmatongo.github.io/todo-list/dist)
+[Live Demo](https://mmatongo.github.io/todo-list/dist/)
 
 ## Getting Started
 
