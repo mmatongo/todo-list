@@ -90,3 +90,7 @@ body {
 .move-button:hover {
   cursor: move;
 }
+
+.remove-btn:hover {
+  cursor: move;
+}

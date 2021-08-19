@@ -1,24 +1,10 @@
 import './styles.css';
 import { dragHover } from './dragdrop';
 import { toStorage, fromStorage, reloadStore } from './store';
+import { sortIndex } from './status';
+import { addHandlers, editHandlers } from './add_remove';
 
-const todoItems = [
-  {
-    description: 'Learn JavaScript',
-    completed: false,
-    index: 0,
-  },
-  {
-    description: 'Count to 3000',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Write a book',
-    completed: false,
-    index: 2,
-  },
-];
+const todoItems = [];
 
 const populateItems = (todoItems, sort) => {
   let sortedTodo = [];
@@ -42,11 +28,13 @@ const populateItems = (todoItems, sort) => {
     document.getElementById('list-items').insertAdjacentHTML('beforeend', `
     <div class="todo-item" draggable="true">
       <div>
-        <input type="checkbox" name="item-${sortedTodo[i].index}"  ${checkbox}>
-        <label for="item-${sortedTodo[i].index}" style="${style}"}> 
-          ${sortedTodo[i].description}</label>
+        <input type="checkbox" name="item-${sortedTodo[i].index}" ${checkbox}>
+        <label for="item-${sortedTodo[i].index}" style="${style}" contenteditable=true> 
+          ${sortedTodo[i].description}
+        </label>
       </div>
       <div class="move-button">
+        <span class="material-icons-outlined remove-btn buttons" id="item-${sortedTodo[i].index}">delete_outline</span>
         <span class="material-icons-outlined buttons">more_vert</span>
       </div>
   </div>
@@ -55,13 +43,16 @@ const populateItems = (todoItems, sort) => {
 };
 
 window.addEventListener('load', () => {
-  const localStore = fromStorage('todo');
+  const localStore = fromStorage();
   if (localStore == null) {
     toStorage(todoItems, true);
     populateItems(todoItems);
   } else {
-    populateItems(localStore, false);
+    const sortedItems = sortIndex(localStore);
+    populateItems(sortedItems, false);
   }
   dragHover();
   reloadStore();
+  addHandlers();
+  editHandlers();
 });
