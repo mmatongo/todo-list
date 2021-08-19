@@ -1,4 +1,5 @@
 import { fromStorage, toStorage, reloadStore } from './store';
+// eslint-disable-next-line import/no-cycle
 import { dragHover } from './dragdrop';
 import { refreshStore } from './status';
 
