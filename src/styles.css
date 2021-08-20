@@ -92,5 +92,5 @@ body {
 }
 
 .remove-btn:hover {
-  cursor: move;
+  cursor: pointer;
 }
