@@ -33,9 +33,9 @@ const populateItems = (todoItems, sort) => {
           ${sortedTodo[i].description}
         </label>
       </div>
-      <div class="move-button">
+      <div>
         <span class="material-icons-outlined remove-btn buttons" id="item-${sortedTodo[i].index}">delete_outline</span>
-        <span class="material-icons-outlined buttons">more_vert</span>
+        <span class="material-icons-outlined buttons move-button">more_vert</span>
       </div>
   </div>
     `);
